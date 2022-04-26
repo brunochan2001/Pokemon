@@ -40,7 +40,7 @@ const RegisterPokemons = ({ pokemons, setPokemons }) => {
   return (
     <>
       <h2>Tus Pokemones Registrados</h2>
-      <div className="d-flex gap-5 flex-wrap">
+      <div className="d-flex gap-5 flex-wrap justify-content-center">
         {pokemons.map((pokemons) => {
           const { name, base_experience, sprites, type, abilities } = pokemons;
           return (
