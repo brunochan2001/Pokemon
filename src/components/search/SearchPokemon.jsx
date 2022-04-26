@@ -9,7 +9,7 @@ const SearchPokemon = () => {
   });
 
   const handleChange = (e) => {
-    setPokemon({ ...pokemon, [e.target.id]: e.target.value });
+    setPokemon({ ...pokemon, [e.target.id]: e.target.value.toLowerCase() });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
