@@ -1,6 +1,7 @@
 import SearchResult from "../components/search/SearchResult";
 import SearchPokemon from "../components/search/SearchPokemon";
 import { useState, useEffect } from "react";
+import RegisterPokemons from "../components/register/RegisterPokemons";
 
 const Home = () => {
   let pokemonLocalStorage = JSON.parse(localStorage.getItem("pokemons-descriptions"));
@@ -25,7 +26,7 @@ const Home = () => {
       ...pokemons,
       {
         name: name,
-        spriter: sprites.front_default,
+        sprites: sprites.front_default,
         types: types[0].type.name,
         base_experience: base_experience,
         abilities: abilities,
@@ -45,6 +46,11 @@ const Home = () => {
           <section className="col-md-12">
             <div className="row ">
               <SearchResult registrarPokemon={registrarPokemon}></SearchResult>
+            </div>
+          </section>
+          <section className="col-md-12">
+            <div className="row ">
+              <RegisterPokemons pokemons={pokemons}></RegisterPokemons>
             </div>
           </section>
         </div>
