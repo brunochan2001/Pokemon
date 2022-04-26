@@ -45,7 +45,7 @@ const Home = () => {
           </section>
           <section className="col-md-12" style={{ height: "500px" }}>
             <div className="row ">
-              <SearchResult registrarPokemon={registrarPokemon}></SearchResult>
+              <SearchResult registrarPokemon={registrarPokemon} pokemons={pokemons}></SearchResult>
             </div>
           </section>
           <section className="col-md-12">

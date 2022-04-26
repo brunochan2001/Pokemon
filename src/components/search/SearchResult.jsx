@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const SearchResult = ({ registrarPokemon }) => {
+const SearchResult = ({ registrarPokemon, pokemons }) => {
   const searchReducers = useSelector((state) => {
     return state.searchReducers;
   });
@@ -10,9 +11,26 @@ const SearchResult = ({ registrarPokemon }) => {
   const { name, sprites } = pokemon;
 
   const handleRegister = () => {
-    registrarPokemon(pokemon);
+    const filterPokemons = pokemons.filter((element) => element.name.includes(`${pokemon.name}`));
+    if (filterPokemons.length == 0) {
+      registrarPokemon(pokemon);
+      Swal.fire({
+        title: "Pokemon Registrado!",
+        text: "Tu pokemon ha sido registrado",
+        icon: "success",
+        timer: 2000,
+        confirmButtonText: "Ok",
+      });
+    } else {
+      Swal.fire({
+        title: "El Pokemon ya esta Registrado!",
+        text: "Tu pokemon ya ha sido registrado",
+        icon: "error",
+        timer: 2000,
+        confirmButtonText: "Ok",
+      });
+    }
   };
-
   return (
     <>
       {loading && (
