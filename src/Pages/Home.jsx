@@ -43,7 +43,7 @@ const Home = () => {
               <SearchPokemon></SearchPokemon>
             </div>
           </section>
-          <section className="col-md-12">
+          <section className="col-md-12" style={{ height: "500px" }}>
             <div className="row ">
               <SearchResult registrarPokemon={registrarPokemon}></SearchResult>
             </div>
