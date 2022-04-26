@@ -7,6 +7,7 @@ const SearchResult = () => {
 
   const { loading, pokemon, error } = searchReducers;
   const { name, sprites, types } = pokemon;
+
   return (
     <>
       {loading && (
@@ -19,7 +20,7 @@ const SearchResult = () => {
         </div>
       )}
       {Object.keys(pokemon).length > 0 && (
-        <div className="card text-dark text-center mx-auto" style={{ width: "15rem" }}>
+        <div className="card text-dark text-center mx-auto my-3" style={{ width: "15rem" }}>
           <img src={sprites.front_default} className="card-img-top" alt={name} />
           <div className="card-body">
             <h5 className="card-title">{name}</h5>
@@ -36,7 +37,7 @@ const SearchResult = () => {
         </div>
       )}
       {error && (
-        <div className="alert alert-danger" role="alert">
+        <div className="alert alert-danger my-3" role="alert">
           Pokémon no encontrado
         </div>
       )}
