@@ -1,10 +1,40 @@
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 const RegisterPokemons = ({ pokemons, setPokemons }) => {
   const DeleteRegister = (e) => {
-    const RegisterRestantes = pokemons.filter((pokemons) => {
-      return pokemons.name != e.target.value;
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success mx-2",
+        cancelButton: "btn btn-danger mx-2",
+      },
+      buttonsStyling: false,
     });
-    setPokemons(RegisterRestantes);
+    swalWithBootstrapButtons
+      .fire({
+        title: "¿Estás segur@?",
+        text: "¡No podrás revertir esto!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "¡Sí, bórralo!",
+        cancelButtonText: "¡No, cancélalo!",
+        reverseButtons: true,
+        showClass: {
+          popup: "animate__animated animate__fadeInDown",
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp",
+        },
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          const RegisterRestantes = pokemons.filter((pokemons) => {
+            return pokemons.name != e.target.value;
+          });
+          setPokemons(RegisterRestantes);
+          swalWithBootstrapButtons.fire("¡Eliminado!", "Ha sido eliminado.", "success");
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire("Cancelad@", "Está seguro :)", "error");
+        }
+      });
   };
 
   return (
