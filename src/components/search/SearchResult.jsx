@@ -7,7 +7,7 @@ const SearchResult = () => {
   });
 
   const { loading, pokemon, error } = searchReducers;
-  const { name, sprites, types } = pokemon;
+  const { name, sprites } = pokemon;
 
   return (
     <>
@@ -24,9 +24,7 @@ const SearchResult = () => {
         <section className="d-flex align-items-center my-5">
           <div className="card text-dark text-center mx-auto my-3" style={{ width: "15rem" }}>
             <img src={sprites.front_default} className="card-img-top" alt={name} />
-            <div className="card-body">
-              <h5 className="card-title">{name}</h5>
-              <p className="card-text">{types[0].type.name}</p>
+            <div className="card-body pt-0">
               <Link to="/pokemon">
                 <li className="btn btn-primary" target="_blank" rel="noreferrer">
                   Ver Mas Detalles
