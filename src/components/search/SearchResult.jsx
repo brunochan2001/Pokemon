@@ -1,13 +1,17 @@
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
-const SearchResult = () => {
+const SearchResult = ({ registrarPokemon }) => {
   const searchReducers = useSelector((state) => {
     return state.searchReducers;
   });
 
   const { loading, pokemon, error } = searchReducers;
   const { name, sprites } = pokemon;
+
+  const handleRegister = () => {
+    registrarPokemon(pokemon);
+  };
 
   return (
     <>
@@ -24,12 +28,20 @@ const SearchResult = () => {
         <section className="d-flex align-items-center my-5">
           <div className="card text-dark text-center mx-auto my-3" style={{ width: "15rem" }}>
             <img src={sprites.front_default} className="card-img-top" alt={name} />
-            <div className="card-body pt-0">
+            <div className="card-body pt-0 d-flex flex-column gap-1 ">
               <Link to="/pokemon">
-                <li className="btn btn-primary" target="_blank" rel="noreferrer">
+                <li className="btn btn-primary w-100" target="_blank" rel="noreferrer">
                   Ver Mas Detalles
                 </li>
               </Link>
+              <li
+                className="btn btn-warning"
+                target="_blank"
+                rel="noreferrer"
+                onClick={handleRegister}
+              >
+                Registrar
+              </li>
             </div>
           </div>
         </section>
