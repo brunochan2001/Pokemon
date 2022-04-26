@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-const RegisterPokemons = ({ pokemons }) => {
+const RegisterPokemons = ({ pokemons, setPokemons }) => {
+  const DeleteRegister = (e) => {
+    const RegisterRestantes = pokemons.filter((pokemons) => {
+      return pokemons.name != e.target.value;
+    });
+    setPokemons(RegisterRestantes);
+  };
+
   return (
     <>
       <h2>Tus Pokemones Registrados</h2>
@@ -24,6 +31,15 @@ const RegisterPokemons = ({ pokemons }) => {
                       );
                     })}
                   </ul>
+                  <button
+                    className="btn btn-danger m-2 mt-0"
+                    target="_blank"
+                    rel="noreferrer"
+                    value={name}
+                    onClick={DeleteRegister}
+                  >
+                    Eliminar
+                  </button>
                 </div>
               </section>
             </>

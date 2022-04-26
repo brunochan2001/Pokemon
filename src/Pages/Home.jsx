@@ -50,7 +50,7 @@ const Home = () => {
           </section>
           <section className="col-md-12">
             <div className="row ">
-              <RegisterPokemons pokemons={pokemons}></RegisterPokemons>
+              <RegisterPokemons pokemons={pokemons} setPokemons={setPokemons}></RegisterPokemons>
             </div>
           </section>
         </div>
