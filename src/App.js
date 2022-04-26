@@ -1,6 +1,7 @@
 import { Provider } from "react-redux";
 import "./App.css";
 import SearchPokemon from "./components/search/SearchPokemon";
+import SearchResult from "./components/search/SearchResult";
 import store from "./redux/store";
 
 function App() {
@@ -13,6 +14,11 @@ function App() {
             <section className="col-md-12">
               <div className="row ">
                 <SearchPokemon></SearchPokemon>
+              </div>
+            </section>
+            <section className="col-md-12">
+              <div className="row ">
+                <SearchResult></SearchResult>
               </div>
             </section>
           </div>

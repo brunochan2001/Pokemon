@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import fetchPokemon from "../../redux/actions/SearchActions";
 
 const SearchPokemon = () => {
+  const dispatch = useDispatch();
   const [pokemon, setPokemon] = useState({
     formBuscadorPokemon: "",
   });
@@ -8,9 +11,9 @@ const SearchPokemon = () => {
   const handleChange = (e) => {
     setPokemon({ ...pokemon, [e.target.id]: e.target.value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(fetchPokemon(pokemon.formBuscadorPokemon));
   };
 
   return (
@@ -28,7 +31,7 @@ const SearchPokemon = () => {
         />
         <label htmlFor="">Nombre del Pokémon</label>
       </div>
-      <button className="btn btn-warning primary w-100">Buscar Pokémon</button>
+      <button className="btn btn-warning rimary w-100">Buscar Pokémon</button>
     </form>
   );
 };
