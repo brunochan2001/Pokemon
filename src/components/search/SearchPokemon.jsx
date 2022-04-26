@@ -18,7 +18,7 @@ const SearchPokemon = () => {
 
   return (
     <form onSubmit={handleSubmit} className="text-dark">
-      <div className="form-floating mb-3">
+      <div className="form-floating mb-4">
         <input
           type="text"
           className="form-control"

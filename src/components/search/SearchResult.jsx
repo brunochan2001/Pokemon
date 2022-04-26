@@ -21,18 +21,20 @@ const SearchResult = () => {
         </div>
       )}
       {Object.keys(pokemon).length > 0 && (
-        <div className="card text-dark text-center mx-auto my-3" style={{ width: "15rem" }}>
-          <img src={sprites.front_default} className="card-img-top" alt={name} />
-          <div className="card-body">
-            <h5 className="card-title">{name}</h5>
-            <p className="card-text">{types[0].type.name}</p>
-            <Link to="/pokemon">
-              <li className="btn btn-primary" target="_blank" rel="noreferrer">
-                Ver Mas Detalles
-              </li>
-            </Link>
+        <section className="d-flex align-items-center my-5">
+          <div className="card text-dark text-center mx-auto my-3" style={{ width: "15rem" }}>
+            <img src={sprites.front_default} className="card-img-top" alt={name} />
+            <div className="card-body">
+              <h5 className="card-title">{name}</h5>
+              <p className="card-text">{types[0].type.name}</p>
+              <Link to="/pokemon">
+                <li className="btn btn-primary" target="_blank" rel="noreferrer">
+                  Ver Mas Detalles
+                </li>
+              </Link>
+            </div>
           </div>
-        </div>
+        </section>
       )}
       {error && (
         <div className="alert alert-danger my-3" role="alert">
