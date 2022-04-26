@@ -45,7 +45,7 @@ const RegisterPokemons = ({ pokemons, setPokemons }) => {
           const { name, base_experience, sprites, type, abilities } = pokemons;
           return (
             <>
-              <section className="d-flex align-items-center my-1">
+              <section className="d-flex align-items-center my-1 animate__animated animate__flipInY">
                 <div className="card text-dark text-center mx-auto my-3" style={{ width: "15rem" }}>
                   <img src={sprites} className="card-img-top" alt={name} />
                   <h5>{name}</h5>

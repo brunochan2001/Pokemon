@@ -43,7 +43,7 @@ const SearchResult = ({ registrarPokemon, pokemons }) => {
         </div>
       )}
       {Object.keys(pokemon).length > 0 && (
-        <section className="d-flex align-items-center my-5">
+        <section className="d-flex align-items-center my-5 animate__animated animate__zoomIn">
           <div className="card text-dark text-center mx-auto my-3" style={{ width: "15rem" }}>
             <img src={sprites.front_default} className="card-img-top" alt={name} />
             <div className="card-body pt-0 d-flex flex-column gap-1 ">
