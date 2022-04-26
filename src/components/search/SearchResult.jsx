@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
 
 const SearchResult = () => {
   const searchReducers = useSelector((state) => {
@@ -25,14 +26,11 @@ const SearchResult = () => {
           <div className="card-body">
             <h5 className="card-title">{name}</h5>
             <p className="card-text">{types[0].type.name}</p>
-            <a
-              href={sprites.front_default}
-              className="btn btn-primary"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Ver
-            </a>
+            <Link to="/pokemon">
+              <li className="btn btn-primary" target="_blank" rel="noreferrer">
+                Ver Mas Detalles
+              </li>
+            </Link>
           </div>
         </div>
       )}
